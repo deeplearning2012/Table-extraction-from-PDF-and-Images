@@ -68,10 +68,10 @@ def image():
 			names.append(filename)
 	for filename in names:
 		name = filename.split('.')[0]
-		tess_cmd = 'sudo tesseract ./ImageModule/data/'+filename+' ./ImageModule/data/'+name+' -l eng pdf'
+		tess_cmd = 'tesseract ./ImageModule/data/'+filename+' ./ImageModule/data/'+name+' -l eng pdf'
 		print(tess_cmd)
 		os.system(tess_cmd)
-		xml_cmd = 'sudo pdftohtml -c -hidden -xml ./ImageModule/data/'+name+'.pdf ./ImageModule/data/'+name+'.xml'
+		xml_cmd = 'pdftohtml -c -hidden -xml ./ImageModule/data/'+name+'.pdf ./ImageModule/data/'+name+'.xml'
 		print(xml_cmd)
 		os.system(xml_cmd)
 		time.sleep(0.2)
